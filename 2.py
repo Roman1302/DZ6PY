@@ -20,7 +20,7 @@ import re
 
 test_str = input("Введите пример: ")
 
-print(test_str.find('('))
+# print(test_str.find('('))
 
 
 def split(s):
@@ -31,16 +31,16 @@ def coordinates(a, b, c):
         print("Деление на 0!")
     elif b == "*":
         w=a*c
-        print (a*c)
+        # print (a*c)
     # elif b == "mod" and b!=0:
     #     w=a % c
     #     print(a % c)
     elif b == "+":
         w=a+c
-        print(a+c)
+        # print(a+c)
     elif b == "-":
         w=a-c
-        print(a-c)
+        # print(a-c)
     # elif b == "pow":
     #     w=a**c
     #     print(a ** c)
@@ -49,25 +49,26 @@ def coordinates(a, b, c):
     #     print(a // c)
     elif b == "/" and b!=0:
         w=a/c
-        print(a/c)
+        # print(a/c)
     return w
+
 
 if test_str.find('(')>=0:
     res = re.findall(r'\(.*?\)', test_str)
-    print("res", res)
+    # print("res", res)
 
     z=res[0].replace("(", "")
     z=z.replace(")", "")
 
-    print(z)
+    # print("z", z)
     x=split(z)
     r=coordinates(int(x[0]), x[1], int(x[2]))
 
     a = test_str.replace(res[0], str(r))
-    print("a", a)
+    # print("a", a)
 
     s=split(a)
-    coordinates(int(s[0]), s[1], int(s[2]))
+    print(f"\n{test_str} => {coordinates(int(s[0]), s[1], int(s[2]))}\n")
 else:
     s=split(test_str)
-    coordinates(int(s[0]), s[1], int(s[2]))
+    print(f"\n{test_str} => {coordinates(int(s[0]), s[1], int(s[2]))}\n")
